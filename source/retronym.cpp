@@ -1,11 +1,11 @@
 #include <fmt/format.h>
-#include <greeter/greeter.h>
+#include <retronym/retronym.h>
 
-using namespace greeter;
+using namespace retro;
 
-Greeter::Greeter(std::string _name) : name(std::move(_name)) {}
+Retronym::Retronym(std::string _name) : name(std::move(_name)) {}
 
-std::string Greeter::greet(LanguageCode lang) const {
+std::string Retronym::greet(LanguageCode lang) const {
   switch (lang) {
     default:
     case LanguageCode::EN:

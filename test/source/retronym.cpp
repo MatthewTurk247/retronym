@@ -1,13 +1,13 @@
 #include <doctest/doctest.h>
-#include <greeter/greeter.h>
-#include <greeter/version.h>
+#include <retronym/retronym.h>
+#include <retronym/version.h>
 
 #include <string>
 
 TEST_CASE("Greeter") {
-  using namespace greeter;
+  using namespace retro;
 
-  Greeter greeter("Tests");
+  Retronym greeter("Tests");
 
   CHECK(greeter.greet(LanguageCode::EN) == "Hello, Tests!");
   CHECK(greeter.greet(LanguageCode::DE) == "Hallo Tests!");

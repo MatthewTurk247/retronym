@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace greeter {
+namespace retro {
 
   /**  Language codes to be used with the Greeter class */
   enum class LanguageCode { EN, DE, ES, FR };
@@ -10,7 +10,7 @@ namespace greeter {
   /**
    * @brief A class for saying hello in multiple languages
    */
-  class Greeter {
+  class Retronym {
     std::string name;
 
   public:
@@ -18,7 +18,7 @@ namespace greeter {
      * @brief Creates a new greeter
      * @param name the name to greet
      */
-    Greeter(std::string name);
+    Retroynm(std::string name);
 
     /**
      * @brief Creates a localized string containing the greeting
@@ -28,4 +28,4 @@ namespace greeter {
     std::string greet(LanguageCode lang = LanguageCode::EN) const;
   };
 
-}  // namespace greeter
+}  // namespace retro
