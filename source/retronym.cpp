@@ -1,20 +1,15 @@
 #include <fmt/format.h>
 #include <retronym/retronym.h>
+#include <retronym/convert.h>
 
 using namespace retro;
 
-Retronym::Retronym(std::string _name) : name(std::move(_name)) {}
+int execvp(std::string file, std::vector<std::string> argv) {
+  char** params = retrograde_params(argv);
+  return _execvp(params[0], params);
+}
 
-std::string Retronym::greet(LanguageCode lang) const {
-  switch (lang) {
-    default:
-    case LanguageCode::EN:
-      return fmt::format("Hello, {}!", name);
-    case LanguageCode::DE:
-      return fmt::format("Hallo {}!", name);
-    case LanguageCode::ES:
-      return fmt::format("¡Hola {}!", name);
-    case LanguageCode::FR:
-      return fmt::format("Bonjour {}!", name);
-  }
+int execv(std::string path, std::vector<std::string> argv) {
+  char** params = retrograde_params(argv);
+  return _execv(params[0], params);
 }
