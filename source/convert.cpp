@@ -15,11 +15,10 @@ char** palloc(std::vector<std::string> args) {
     }
 
     // This array needs to be null-terminated.
-    params[nparams] = NULL;  // Use NULL here.
+    params[nparams] = NULL;
 
     char** pparams = (char**)malloc(nbytes);
     memmove(pparams, params, nbytes);
-    // Don't forget to free the original array.
     free(params);
 
     return pparams;
