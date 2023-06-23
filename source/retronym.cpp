@@ -71,23 +71,23 @@ char** retro::allocateArgs(const std::vector<std::string>& args) {
 }
 
 char** retro::allocateEnv(const std::map<std::string, std::string>& env) {
-    char** envp = new char*[env.size() + 1]; // extra room for nullptr
+    char** envp = new char*[env.size() + 1];
     size_t i = 0;
     
     for (const auto& e : env) {
         std::string env_var = e.first + "=" + e.second;
-        envp[i] = new char[env_var.size() + 1]; // extra room for '\0'
+        envp[i] = new char[env_var.size() + 1];
         strcpy(envp[i], env_var.c_str());
         ++i;
     }
-    envp[env.size()] = nullptr; // end array with nullptr
+    envp[env.size()] = nullptr;
     
     return envp;
 }
 
 void retro::freevp(char** argv, size_t size) {
     for (size_t i = 0; i != size; ++i) {
-        delete [] argv[i];
+        delete[] argv[i];
     }
-    delete [] argv;
+    delete[] argv;
 }
