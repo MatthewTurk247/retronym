@@ -5,9 +5,9 @@ char* retrograde(std::string s) {
     return strcpy(result, s.c_str());
 }
 
-char** retrograde_params(std::vector<std::string> args) {
+char** palloc(std::vector<std::string> args) {
     size_t nparams = args.size();
-    size_t nbytes = nparams * sizeof(char*);
+    size_t nbytes = (nparams + 1) * sizeof(char*);  // +1 for null terminator.
     char** params = (char**)malloc(nbytes);
 
     for (size_t i = 0; i < nparams; i++) {
@@ -15,9 +15,12 @@ char** retrograde_params(std::vector<std::string> args) {
     }
 
     // This array needs to be null-terminated.
-    params[nparams] = 0;
+    params[nparams] = NULL;  // Use NULL here.
+
     char** pparams = (char**)malloc(nbytes);
     memmove(pparams, params, nbytes);
+    // Don't forget to free the original array.
+    free(params);
 
     return pparams;
 }
